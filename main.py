@@ -37,15 +37,13 @@ def main():
             if event.type == pygame.QUIT:
                 return
 
-        if player1.player_timer > 0:
-            player1.player_timer -= dt
-
         updatable.update(dt)
 
         for obj in asteroids:
             if player1.collision(obj):
                 print("Game Over!")
                 exit()
+
         screen.fill((0, 0, 0))
 
         for items in drawable:

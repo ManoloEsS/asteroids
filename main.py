@@ -3,28 +3,27 @@
 # throughout this file
 import pygame
 
-import constants
-import player
+from constants import *
+from player import Player
 
 
 def main():
     pygame.init()
-    screen = pygame.display.set_mode((constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT))
-    print("Starting Asteroids!")
-    print(f"Screen width: {constants.SCREEN_WIDTH}")
-    print(f"Screen height: {constants.SCREEN_HEIGHT}")
-
+    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     fps = pygame.time.Clock()
-    dt = 0
 
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
 
-    player.Player.containers = (updatable, drawable)
+    Player.containers = (updatable, drawable)
+
+    x = SCREEN_WIDTH / 2
+    y = SCREEN_HEIGHT / 2
+    player1 = Player(x, y)
+
+    dt = 0
+
     # starts in middle of screen
-    x = constants.SCREEN_WIDTH / 2
-    y = constants.SCREEN_HEIGHT / 2
-    player1 = player.Player(x, y)
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -33,11 +32,12 @@ def main():
         updatable.update(dt)
 
         screen.fill((0, 0, 0))
+
         for items in drawable:
             items.draw(screen)
 
         pygame.display.flip()
-        fps.tick(60)
+
         dt = fps.tick(60) / 1000
 
 

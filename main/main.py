@@ -2,16 +2,16 @@ from sys import exit
 
 import pygame
 
-from asteroid import Asteroid
-from asteroidfield import AsteroidField
-from constants import *
-from player import Player
-from shot import Shot
+from game_assets.asteroid import Asteroid
+from game_assets.asteroidfield import AsteroidField
+from constants import constants as c
+from game_assets.player import Player
+from game_assets.shot import Shot
 
 
 def main():
     pygame.init()
-    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    screen = pygame.display.set_mode((c.SCREEN_WIDTH, c.SCREEN_HEIGHT))
     fps = pygame.time.Clock()
 
     updatable = pygame.sprite.Group()
@@ -25,8 +25,8 @@ def main():
     Shot.containers = (shots, updatable, drawable)
 
     Player.containers = (updatable, drawable)
-    x = SCREEN_WIDTH / 2
-    y = SCREEN_HEIGHT / 2
+    x = c.SCREEN_WIDTH / 2
+    y = c.SCREEN_HEIGHT / 2
     player1 = Player(x, y)
 
     dt = 0

@@ -4,10 +4,10 @@ This is a classic Asteroids game built with Python and the `pygame` library.
 The player controls a spaceship in an asteroid field and must shoot and destroy the asteroids.
 
 The controls are:
-Forward - W
-Back - S
-Rotate right - D
-Rotate left - A
+- Forward - W
+- Back - S
+- Rotate right - D
+- Rotate left - A
 
 ## What I Learned from This Project
 

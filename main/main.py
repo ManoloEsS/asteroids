@@ -9,7 +9,12 @@ from game_assets.player import Player
 from game_assets.shot import Shot
 
 
-def main():
+def main() -> None:
+    """Main game loop for the Asteroids game.
+    
+    Initializes pygame, creates game objects, and runs the main game loop
+    handling events, updates, collision detection, and rendering.
+    """
     pygame.init()
     screen = pygame.display.set_mode((c.SCREEN_WIDTH, c.SCREEN_HEIGHT))
     fps = pygame.time.Clock()
